@@ -13,6 +13,56 @@ button,input,select,textarea{font:inherit;border-radius:10px;padding:10px 12px;b
 .settings-panel{position:absolute;z-index:30;right:0;top:calc(100% + 10px);width:min(360px,calc(100vw - 32px));padding:16px;background:var(--panel,#111720);border:1px solid var(--line,#293343);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.4)}
 .settings-panel .eyebrow{display:block;margin-bottom:10px}
 .settings-panel .flex{margin-bottom:8px}
+
+
+/* Mobile layout hardening: prevent cards, tabs, and controls from overflowing */
+html{width:100%;max-width:100%;overflow-x:hidden}
+body{width:100%;max-width:100%;overflow-x:hidden}
+.app,main,header,section,.panel,.player,.profile{min-width:0;max-width:100%}
+header{align-items:flex-start}
+.brandline{min-width:0;flex:1}
+.brandline>div:last-child{min-width:0}
+h1{overflow-wrap:anywhere}
+button,select,input,textarea{max-width:100%}
+img,svg,video,canvas{max-width:100%}
+.player-head,.section-head{min-width:0}
+@media(max-width:760px){
+ .app{padding:12px}
+ header{gap:12px}
+ .brandline{gap:9px;flex-basis:calc(100% - 52px)}
+ .brandline .eyebrow{font-size:9px;letter-spacing:.12em}
+ .crest,.crestFallback{width:42px;height:48px;flex:0 0 42px}
+ h1{font-size:clamp(24px,7vw,32px);letter-spacing:-.04em;line-height:1.08}
+ .savebox.settings-wrap{width:auto;flex:0 0 42px;min-width:42px;margin-left:auto}
+ .settings-toggle{width:40px;height:40px;min-width:40px}
+ .tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:16px 0 12px;padding:5px}
+ .tabs button{min-width:0;white-space:normal;overflow-wrap:anywhere;font-size:11px;line-height:1.25;padding:11px 5px}
+ .panel{padding:13px;border-radius:14px}
+ .layout,.profile-grid{grid-template-columns:minmax(0,1fr)}
+ .grid{grid-template-columns:minmax(0,1fr)}
+ .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .metrics div{padding:10px}
+ .metrics strong{font-size:23px}
+ .player-stats,.stat-grid,.statbox-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .profile{padding:13px}
+ .profile .player-photo,.profile .player-photo-fallback{width:88px;height:108px}
+ .searchrow{display:flex;flex-direction:column}
+ .searchrow input,.searchrow select,.searchrow button{width:100%;min-width:0}
+ .actions{gap:6px}
+ .actions button{flex:1 1 auto;min-width:0;white-space:normal}
+ .settings-panel{right:0;top:calc(100% + 8px);width:min(330px,calc(100vw - 24px));max-height:75vh;overflow-y:auto}
+ footer{margin:18px 0;font-size:10px;overflow-wrap:anywhere}
+}
+@media(max-width:380px){
+ .app{padding:9px}
+ .brandline{flex-basis:calc(100% - 46px)}
+ .crest,.crestFallback{width:36px;height:42px;flex-basis:36px}
+ h1{font-size:23px}
+ .metrics{grid-template-columns:1fr 1fr}
+ .metrics strong{font-size:20px}
+ .tabs button{font-size:10px;padding:10px 3px}
+ .panel{padding:11px}
+}
 </style></head><body><main class="app"><header><div class="brandline"><div id="clubCrest" class="crestFallback">CPL</div><div><div class="eyebrow">FIFA CAREER MODE · PLAYER MANAGEMENT</div><h1>CAREER <span class="green">PLAYER LAB</span></h1><div class="muted">Scouting · Player progression · Career data</div><div class="clubline"><span class="clubdot"></span><strong id="clubNameLabel">Career Save</strong><span id="clubSeasonLabel">· 2026/27</span></div></div></div><div class="savebox settings-wrap">
 <button id="settingsToggle" class="settings-toggle" type="button" aria-expanded="false" aria-controls="settingsPanel" title="Pengaturan Career Save" aria-label="Pengaturan">⚙</button>
 <div id="settingsPanel" class="settings-panel hidden">
