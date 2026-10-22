@@ -63,6 +63,51 @@ img,svg,video,canvas{max-width:100%}
  .tabs button{font-size:10px;padding:10px 3px}
  .panel{padding:11px}
 }
+
+/* Final phone polish */
+@media(max-width:760px){
+ header{position:relative;padding-right:48px;display:block}
+ .brandline{width:100%;flex:none;align-items:flex-start}
+ .savebox.settings-wrap{position:absolute;top:0;right:0;width:42px;min-width:42px;flex:none;margin:0}
+ .settings-panel{position:fixed;top:72px;right:12px;width:min(340px,calc(100vw - 24px));}
+ .clubline{flex-wrap:wrap;gap:6px}
+ .tabs{margin-top:18px}
+ /* Database toolbar stacks cleanly */
+ #db .section-head,.section-head{align-items:stretch}
+ #db .section-head>div{min-width:0}
+ #db .flex{align-items:stretch;gap:8px}
+ #db .flex>.field{flex:1 1 100%;min-width:0}
+ #db #export{width:100%}
+ #db #addSeason{width:100%}
+ #db .searchrow{width:100%;gap:8px}
+ #db .searchrow>*{width:100%;min-width:0;max-width:100%}
+ #db .player-head{align-items:flex-start;flex-wrap:wrap}
+ #db .player-head>div{min-width:0;flex:1 1 150px}
+ #db .player-head h3{overflow-wrap:anywhere}
+ .player{min-width:0}
+ .player-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .player-stats>*{min-width:0}
+ .actions button{flex:1 1 calc(50% - 6px)}
+ .profile .section-head{align-items:flex-start}
+ .profile .section-head>*{min-width:0}
+ .gacha-types{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .rulegroup .grid{grid-template-columns:minmax(0,1fr)}
+ input,select,textarea{font-size:16px}
+}
+@media(max-width:420px){
+ .app{padding:10px}
+ .brandline{gap:8px}
+ .brandline .eyebrow{font-size:8px;letter-spacing:.1em}
+ h1{font-size:clamp(21px,6.5vw,27px)}
+ .muted{overflow-wrap:anywhere}
+ .panel{padding:11px}
+ #db .flex{flex-direction:column}
+ #db .flex>.field{width:100%}
+ .metrics{gap:7px}
+ .metrics strong{font-size:19px}
+ .player-head{gap:9px}
+ .player-photo,.player-photo-fallback{width:58px;height:72px}
+}
 </style></head><body><main class="app"><header><div class="brandline"><div id="clubCrest" class="crestFallback">CPL</div><div><div class="eyebrow">FIFA CAREER MODE · PLAYER MANAGEMENT</div><h1>CAREER <span class="green">PLAYER LAB</span></h1><div class="muted">Scouting · Player progression · Career data</div><div class="clubline"><span class="clubdot"></span><strong id="clubNameLabel">Career Save</strong><span id="clubSeasonLabel">· 2026/27</span></div></div></div><div class="savebox settings-wrap">
 <button id="settingsToggle" class="settings-toggle" type="button" aria-expanded="false" aria-controls="settingsPanel" title="Pengaturan Career Save" aria-label="Pengaturan">⚙</button>
 <div id="settingsPanel" class="settings-panel hidden">
